@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Certificate Storage Blockchain</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+		function addCertificate() {
+			var name = $("#name").val();
+			var organization = $("#organization").val();
+			var date = $("#date").val();
+			var image = $("#image").val();
+
+			$.ajax({
+				type: "POST",
+				url: "/add_cert",
+				contentType: "application/json; charset=utf-8",
+				data: JSON.stringify({
+					"name": name,
+					"organization": organization,
+					"date": date,
+					"image": image
+				}),
+				success: function(response) {
+					alert("Certificate added successfully! Proof of work: " + response.proof);
+				},
+				error: function() {
+					alert("Error adding certificate!");
+				}
+			});
+		}
+
+		function viewCertificates() {
+			$.ajax({
+				type: "GET",
+				url: "/view_certificates",
+				success: function(certificates) {
+					var table = "<table><tr><th>Name</th><th>Organization</th><th>Date</th><th>Proof of work</th></tr>";
+					for (var i = 0; i < certificates.length; i++) {
+						table += "<tr><td>" + certificates[i].name + "</td><td>" + certificates[i].organization + "</td><td>" + certificates[i].date + "</td><td>" + certificates[i].proof + "</td></tr>";
+					}
+					table += "</table>";
+					$("#certificates").html(table);
+				},
+				error: function() {
+					alert("Error getting certificates!");
+				}
+			});
+		}
+	</script>
+</head>
+<body>
+	<h1>Certificate Storage Blockchain</h1>
+
+	<h2>Add Certificate</h2>
+	<label for="name">Name:</label>
+	<input type="text" id="name" name="name"><br>
+
+	<label for="organization">Organization:</label>
+	<input type="text" id="organization" name="organization"><br>
+
+	<label for="date">Date:</label>
+	<input type="date" id="date" name="date"><br>
+
+	<label for="image">Image:</label>
+	<input type="text" id="image" name="image"><br>
+
+	<button type="button" onclick="addCertificate()">Add Certificate</button>
+
+	<h2>View Certificates</h2>
+	<button type="button" onclick="viewCertificates()">View Certificates</button>
+	<div id="certificates"></div>
+</body>
+</html>
