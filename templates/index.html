@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Certificate Storage Blockchain</title>
+	<title>Project Capstone</title>
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-
+	<style>@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');</style>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	
 	<script>
 		function addCertificate() {
 			var name = $("#name").val();
@@ -51,7 +52,8 @@
 	</script>
 </head>
 <body>
-	<h1>Certificate Storage Blockchain</h1>
+	
+	
 
 	<h2>Add Certificate</h2>
 	<label for="name">Name:</label>
@@ -65,11 +67,14 @@
 
 	<label for="image">Image:</label>
 	<input type="text" id="image" name="image"><br>
+	<a href="https://base64.guru/converter/encode/image" id="info" target="_blank">Encode Your Certificate into Base64!</a>
 
 	<button type="button" onclick="addCertificate()">Add Certificate</button>
 
 	<h2>View Certificates</h2>
 	<button type="button" onclick="viewCertificates()">View Certificates</button>
 	<div id="certificates"></div>
+
+	<p align="center"><a href="/" ><button class=grey style="height:50px;width:150px">Home</button></a></p>
 </body>
 </html>

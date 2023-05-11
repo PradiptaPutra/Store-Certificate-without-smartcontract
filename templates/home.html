@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+</head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+	<main>
+		<section id="home">
+			<h1>Certificate Storage Using Blockchain</h1>
+			<p>Konsep penggunaan teknologi blockchain untuk menyimpan sertifikat atau dokumen penting secara aman, terdesentralisasi, dan terpercaya. 
+            Dengan memanfaatkan kemampuan blockchain untuk menciptakan database terdistribusi dan transparan, informasi sertifikat dapat diakses dan diverifikasi dengan mudah oleh pihak yang berkepentingan tanpa adanya risiko manipulasi atau pemalsuan. 
+            Hal ini menjadikan metode ini sebagai solusi yang menjanjikan untuk keamanan dokumen dan informasi yang kritis.</p>
+			<a href="#tutorial" class="scroll-link">Get Started</a>
+		</section>
+		<section id="tutorial">
+			<h2>Tutorial</h2>
+		
+			<ul>
+				<li>
+					<h3>First</h3>
+					<p>Masukan Nama,Organisasi Penerbit Universitas,Masukan Tanggal Sertifikat Di Terbitkan.</p>
+				</li>
+				<li>
+					<h3>Second</h3>
+					<p>Encode Sertifikat Digital Supaya Image menjadi Base64. </p>
+				</li>
+				<li>
+					<h3>Third</h3>
+					<p>Sertifikat yang disimpan bisa dilihat dengan mengakses menu "View Certificate".</p>
+				</li>
+			</ul>
+            <p align="center"><a href=index ><button class=grey style="height:50px;width:150px">Add Certificate</button></a></p>
+			
+		</section>
+		<section id="about">
+			<h2>About </h2>
+			<p>Project ini dibuat untuk Project Capstone <b>BISA AI ACADEMY</b></p>
+			
+			<a href="#home" class="scroll-link">Back to Top</a>
+		</section>
+	</main>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('.scroll-link').on('click', function(event) {
+				event.preventDefault();
+				var target = $(this).attr('href');
+				$('html, body').animate({
+					scrollTop: $(target).offset().top
+				}, 1000);
+			});
+		});
+	</script>
+</body>
+
+</html>
